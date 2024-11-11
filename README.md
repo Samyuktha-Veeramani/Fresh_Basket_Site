@@ -1,2 +1,2 @@
-
-# Fresh_Basket_Site
+# Freshbasket
+The new e-commerce web app

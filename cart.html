@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+
+<style>
+.cart-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cart-items {
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.cart-total {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.cart-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.checkout-button, .continue-shopping-button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.checkout-button:hover, .continue-shopping-button:hover {
+    background-color: #45a049;
+}
+
+.go-to-shop-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.go-to-shop-link:hover {
+    text-decoration: underline;
+}
+</style>
+</head>
+<body>
+    <header>
+        <h1>FreshBasket</h1>
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('shop') }}">Shop</a>
+            <a href="{{ url_for('cart') }}">Cart</a>
+            
+                <a href="{{ url_for('logout') }}">Logout</a>
+            
+                <a href="{{ url_for('login') }}">Login</a>
+          
+        </nav>
+    </header>
+
+    <h2>Your Cart</h2>
+    <div class="cart-container">
+        
+            <div class="cart-items">
+                
+                    <div class="cart-item">
+                        <p><strong>{{ item['name'] }}</strong></p>
+                        <p>Price: ${{ item['price'] }}</p>
+                        <p>Quantity: {{ item['quantity'] }}</p>
+                    </div>
+                
+                <div class="cart-total">
+                    <p><strong>Total: ${{ total_price }}</strong></p>
+                </div>
+                <div class="cart-actions">
+                    <button class="checkout-button">Checkout</button>
+                    <button class="continue-shopping-button">Continue Shopping</button>
+                </div>
+            </div>
+        
+            <p>Your cart is empty!</p>
+            <a href="/shop" class="go-to-shop-link">Go to Shop</a>
+      
+    </div>
+    
+
+    <footer>
+        <p>&copy; 2024 FreshBasket</p>
+    </footer>
+</body>
+</html>
